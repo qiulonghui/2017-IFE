@@ -9,7 +9,7 @@
 
 ## 斌斌学院
 ### 任务2
-[预览地址]()
+[预览地址](https://github.com/qiulonghui/2017-IFE/blob/master/%E6%96%8C%E6%96%8C%E5%AD%A6%E9%99%A2/task2.html)
 
 ## 耀耀学院
 ### 任务1
