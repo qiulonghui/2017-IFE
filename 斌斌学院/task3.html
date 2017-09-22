@@ -68,10 +68,10 @@ return aqiData;
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-	var aqiData = data.sort(function(a,b){
+	data.sort(function(a,b){
 		return a[1] - b[1];
 	})
-	return aqiData;
+	return data;
 }
 /**
  * render
