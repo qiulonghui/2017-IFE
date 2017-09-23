@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,li{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#cont li{
+				min-width: 50px;
+				height: 50px;
+				line-height: 50px;
+				margin-right: 10px;
+				color: #FFFFFF;
+				background-color: lightcoral;
+				display: inline-block;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<textarea name="" rows="" cols="" id="inset-text"></textarea>
+		<input type="button" name="inset" id="inset-btn" value="插入" />
+		<input type="button" name="" id="query-btn" value="查询" />
+		<input type="text" name="" id="query-text" value="" />
+		<ul id="cont">
+			<li>aaa</li>
+		</ul>
+		<script type="text/javascript">
+			var insetArea = document.querySelector("#inset-text");
+			var cont = document.querySelector("#cont");
+			var btnInsert = document.querySelector("#inset-btn");
+			var queryText = document.querySelector("#query-text");
+			var arr = [];
+			function insert(){
+				//插入字符串，并对字符串进行符号分割处理
+				if(insetArea.value == ""){
+					alert("请输入内容");
+				}else{
+					var words = insetArea.value.replace(/[^0-9a-zA-Z]/g, ' ');
+					arr = words.split(' ');	
+					console.log(arr)
+					for(var i=0;i<arr.length;i++){
+						var li = document.createElement("li");
+						li.innerText = arr[i];
+						li.id = "item"+i
+						cont.append(li);
+					}
+				}				
+			}
+			function search(){
+				var word = queryText.value;
+				for(var i=0;i<arr.length;i++){
+					arr[i]
+				}
+			}
+			
+			btnInsert.addEventListener("click",function(){
+				insert();
+			})
+		</script>
+	</body>
+</html>

@@ -7,14 +7,20 @@
 			.cont {
 				overflow: hidden;
 				padding: 0;
+				display: flex;
+				display: -webkit-flex;
+   				align-items: flex-end;
 			}
 			.cont li{
 				margin-right: 10px;
-				padding: 5px;
+				padding: 0 5px;
 				background-color: red;
 				color: #FFFFFF;
-				float: left;
 				list-style: none;
+				height: 28px;
+				width: 10px;
+				display: inline-block;
+				
 			}
 		</style>
 	</head>
@@ -25,8 +31,8 @@
 		<input type="button" name="left-out" id="left-out" value="左侧出" />
 		<input type="button" name="right-out" id="right-out" value="右侧出" />
 		<ul class="cont">
-			<!--<li></li>-->
 		</ul>
+		<input type="button" name="sort-btn" id="sort-btn" value="排序" />
 	</body>
 	<script type="text/javascript">
 		(function(){
@@ -36,17 +42,20 @@
 			var btnLeftOut = document.querySelector("#left-out");
 			var btnRightOut = document.querySelector("#right-out");
 			var contContainer = document.querySelector(".cont");
+			var btnSort = document.querySelector("#sort-btn");
 			function insert(direction){
 				//插入队列
-				if(isNaN(textCont.value)|| textCont.value == ""){
-					alert('请输入数字');
+				if(isNaN(textCont.value)|| textCont.value == "" || textCont.value<10||textCont.value>100){
+					alert('请输入10-100的数字' + contContainer.childElementCount);
+				}else if(contContainer.childElementCount >= 10){
+					alert('超出限制');
 				}else{
 					var li = document.createElement("li");
-					li.innerHTML = textCont.value;
+					li.style.height = textCont.value + "px";
 					if(direction == "right"){
 						contContainer.append(li);
 					}else if(direction == "left"){
-						contContainer.insertBefore(li,contContainer.firsteChild);
+						contContainer.insertBefore(li,contContainer.firstChild);
 					}
 				}
 			}
@@ -62,6 +71,22 @@
 				}
 			}
 			
+			function sort(){
+				var aLi = contContainer.querySelectorAll("li");
+				var arr = [];
+				for(var i=0; i<aLi.length; i++ ){
+					var liHeight = aLi[i].offsetHeight;
+					arr.push(liHeight);
+				}
+				arr.sort(function(a,b){
+					return a-b;
+				})
+				for(var j=0; j<aLi.length; j++ ){
+					aLi[j].style.height = arr[j] + "px";
+				}
+			}
+			
+			
 			btnLeftIn.addEventListener("click",function(){
 				insert('left');
 			})
@@ -76,6 +101,10 @@
 			
 			btnRightOut.addEventListener("click",function(){
 				del('right');
+			})
+			
+			btnSort.addEventListener("click",function(){
+				sort();
 			})
 		})()
 	</script>
