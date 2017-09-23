@@ -22,7 +22,7 @@
 5. lastChild 方法：返回最后一个子节点。 语法：fatherNode.lastChild
 6. firstElementChild 方法：返回首个元素类型的子节点。 语法：fatherNode.firstElementChild
 7. lastElementChild 方法：返回最后一个元素类型的子节点。 语法：fatherNode.lastElementChild
-8. [任务中用到的几种DOM方法及相关方法总结] (http://ife.baidu.com/note/detail/id/718)
+8. [任务中用到的几种DOM方法及相关方法总结](http://ife.baidu.com/note/detail/id/718)
 
 ## 耀耀学院
 ### 任务1
