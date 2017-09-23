@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont {
+				overflow: hidden;
+				padding: 0;
+			}
+			.cont li{
+				margin-right: 10px;
+				padding: 5px;
+				background-color: red;
+				color: #FFFFFF;
+				float: left;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="text" value="" />
+		<input type="button" id="left-in" value="左侧入" />
+		<input type="button" name="right-in" id="right-in" value="右侧入" />
+		<input type="button" name="left-out" id="left-out" value="左侧出" />
+		<input type="button" name="right-out" id="right-out" value="右侧出" />
+		<ul class="cont">
+			<!--<li></li>-->
+		</ul>
+	</body>
+	<script type="text/javascript">
+		(function(){
+			var textCont =  document.querySelector("#text");
+			var btnLeftIn = document.querySelector("#left-in");
+			var btnRightIn = document.querySelector("#right-in");
+			var btnLeftOut = document.querySelector("#left-out");
+			var btnRightOut = document.querySelector("#right-out");
+			var contContainer = document.querySelector(".cont");
+			function insert(direction){
+				//插入队列
+				if(isNaN(textCont.value)|| textCont.value == ""){
+					alert('请输入数字');
+				}else{
+					var li = document.createElement("li");
+					li.innerHTML = textCont.value;
+					if(direction == "right"){
+						contContainer.append(li);
+					}else if(direction == "left"){
+						contContainer.insertBefore(li,contContainer.firstChild);
+					}
+				}
+			}
+			
+			function del(direction){
+				//移除队列
+				if(contContainer.childElementCount > 0){
+					if(direction == "right"){
+						contContainer.lastElementChild.remove();					
+					}else if(direction == "left"){
+						contContainer.firstElementChild.remove();
+					}
+				}
+			}
+			
+			btnLeftIn.addEventListener("click",function(){
+				insert('left');
+			})
+			
+			btnRightIn.addEventListener("click",function(){
+				insert('right');
+			})
+			
+			btnLeftOut.addEventListener("click",function(){
+				del('left');
+			})
+			
+			btnRightOut.addEventListener("click",function(){
+				del('right');
+			})
+		})()
+	</script>
+</html>
