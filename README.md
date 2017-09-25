@@ -35,4 +35,8 @@
 1. [JavaScript中常见的字符串操作函数及用法](http://www.cnblogs.com/ranzige/p/4475338.html)
 
 ## 耀耀学院
-### 任务1
+### 任务3
+#### 任务目的：实践select表单和option表单的操作
+[预览地址]()
+
+1.[JS动态添加option和删除option的相关操作](http://www.jb51.net/article/35205.htm)

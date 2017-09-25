@@ -28,12 +28,12 @@
 		<input type="button" name="" id="query-btn" value="查询" />
 		<input type="text" name="" id="query-text" value="" />
 		<ul id="cont">
-			<li>aaa</li>
 		</ul>
 		<script type="text/javascript">
 			var insetArea = document.querySelector("#inset-text");
 			var cont = document.querySelector("#cont");
 			var btnInsert = document.querySelector("#inset-btn");
+			var btnSearch = document.querySelector("#query-btn");
 			var queryText = document.querySelector("#query-text");
 			var arr = [];
 			function insert(){
@@ -41,9 +41,9 @@
 				if(insetArea.value == ""){
 					alert("请输入内容");
 				}else{
-					var words = insetArea.value.replace(/[^0-9a-zA-Z]/g, ' ');
-					arr = words.split(' ');	
-					console.log(arr)
+					var words = insetArea.value.replace(/[^0-9a-zA-Z]/g, ' ');//使用正则表达式替换特殊字符为空格
+					arr = words.split(' ');	//通过空格对字符串分割
+					console.log(arr);
 					for(var i=0;i<arr.length;i++){
 						var li = document.createElement("li");
 						li.innerText = arr[i];
@@ -53,14 +53,26 @@
 				}				
 			}
 			function search(){
+				//模糊搜索配对
 				var word = queryText.value;
-				for(var i=0;i<arr.length;i++){
-					arr[i]
+				var liList = cont.querySelectorAll("li");
+				if(word != ""){
+					for(var i=0;i<liList.length;i++){
+						liList[i].style.backgroundColor = "lightcoral";
+						if(liList[i].innerText.indexOf(word)>-1){
+							liList[i].style.backgroundColor = "blue";
+						}
+					}
+				}else{
+					alert("请输入查询内容");
 				}
 			}
 			
 			btnInsert.addEventListener("click",function(){
 				insert();
+			})
+			btnSearch.addEventListener("click",function(){
+				search();
 			})
 		</script>
 	</body>

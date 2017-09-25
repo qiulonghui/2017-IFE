@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.student-cont,
+			.work-cont{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="radio" name="student" id="stu" value="1" />在校生
+		<input type="radio" name="student" id="no-stu" value="2" />非在校生
+		<div class="student-cont">
+			学校
+			<select name="postion">
+				<option value="北京">北京</option>
+				<option value="上海">上海</option>
+				<option value="广州">广州</option>
+			</select>
+			<select name="school">
+				<option value="">北京的大学1</option>
+				<option value="">北京的大学2</option>
+				<option value="">北京的大学3</option>
+			</select>
+		</div>
+		<div class="work-cont">
+			工作单位
+			<input type="text" name="work" id="work" value="" />
+		</div>
+		<script type="text/javascript">
+			var stu = document.querySelector("#stu");
+			var noStu = document.querySelector("#no-stu");
+			var div1 = document.querySelector(".student-cont");
+			var div2 = document.querySelector(".work-cont");
+			var select1 = document.querySelectorAll("select")[0];
+			var select2 = document.querySelectorAll("select")[1];
+			
+			stu.addEventListener("change",function(){
+				div1.style.display="block";
+				div2.style.display="none";
+			})
+			noStu.addEventListener("change",function(){
+				div1.style.display="none";
+				div2.style.display="block";
+			})
+			
+			function school(a){
+				select2.options.length=0;//清空所以选项
+				switch (a){
+					case "北京":
+						select2.add(new Option("北京的大学1"));
+						select2.add(new Option("北京的大学2"));
+						select2.add(new Option("北京的大学3"));
+						break;
+					case "上海":
+						select2.add(new Option("上海的大学1"));
+						select2.add(new Option("上海的大学2"));
+						select2.add(new Option("上海的大学3"));
+						break;
+					case "广州":
+						select2.add(new Option("广州的大学1"));
+						select2.add(new Option("广州的大学2"));
+						select2.add(new Option("广州的大学3"));
+						break;
+				}
+			}
+			
+			select1.addEventListener("change",function(){
+				school(select1.value)
+			})
+		</script>
+	</body>
+</html>
