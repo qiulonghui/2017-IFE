@@ -42,8 +42,7 @@
 1.[JS动态添加option和删除option的相关操作](http://www.jb51.net/article/35205.htm)
 
 ### 任务4
-#### 任务目的：1.练习JavaScript在DOM、字符串处理相关知识
-			  2.练习对于复杂UI，如何进行数据机构建模
+#### 任务目的：1.练习JavaScript在DOM、字符串处理相关知识 2.练习对于复杂UI，如何进行数据机构建模
 [预览地址](https://github.com/qiulonghui/2017-IFE/blob/master/%E8%80%80%E8%80%80%E5%AD%A6%E9%99%A2/task4.html)
 1.使用变量i来作为方向的标记。
 2.通过i%4取模来判断小方块的方向。
