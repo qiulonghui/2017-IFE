@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin: 0;
+			}
+			table{
+				position: relative;
+			}
+			td{
+				border: 1px solid #888888;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				box-sizing: border-box;
+			}
+			.header td{
+				border: none;
+			}
+			table tr td:first-child{
+				border: none;
+			}
+			span{
+				display: inline-block;
+			}
+			#box{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				transform: rotate(0deg);
+				-webkit-transform: rotate(0deg);
+				 transition: all 1s;
+			}
+			#box .box-top{
+				width: 50px;
+				height: 15px;
+				background-color: blue;
+				vertical-align: top;				
+			}
+		</style>
+	</head>
+	<body>
+		<table border="0" cellspacing="0" cellpadding="0" id="table">
+			<tr class="header">
+				<td></td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<span id="box" style="top: 250px;left: 250px;"><span class="box-top"></span></span>
+		</table>
+		<input type="text" id="order" />
+		<input type="button" id="button" value="执行" />
+		
+		<script type="text/javascript">
+			var box = document.querySelector("#box");
+			var oInput = document.querySelector("#order");
+			var btn = document.querySelector("#button");
+			//创建方向标记
+			var i = 0 ;
+			
+			function zhixing(){
+				//获取用户输入，并转化为大写
+				var oInputValue = oInput.value.toUpperCase();
+				//根据用户输入改变方向标记i,同时对小方块进行操作
+				switch (oInputValue){
+					case 'TUN LEF':
+						i--;
+						box.style.transform = "rotate(" + 90*i + "deg)"; 
+						break;
+						
+					case 'TUN RIG':
+						i++;
+						box.style.transform = "rotate("+ 90*i +"deg)";
+						break;
+						
+					case 'TUN BAC':
+						i -= 2;
+						box.style.transform = "rotate("+ 90*i +"deg)";
+						break;
+					case 'GO':
+						//对方向标记取余，得到运动方向标记
+						var direction = Math.abs(i % 4);//0,1,2,3
+						//获取小方块的位置
+						var left = Number(box.style.left.replace("px",""));
+						var top = Number(box.style.top.replace("px",""));
+						//根据运动方向标记对小方块进行移动
+						switch(direction){
+							case 0:
+								if (top > 50) {
+									top -= 50;
+									box.style.top = top + "px";
+								}
+								break;
+
+							case 1:
+								if (left > 50) {
+									left -= 50;
+									box.style.left = left + "px";
+								}
+								break;
+							case 2:
+								if (top <= 450) {
+									top += 50;
+									box.style.top = top + 'px';
+								}
+								break;
+							case 3:
+								if (left <= 450) {
+									left += 50;
+									box.style.left = left + 'px';
+								}
+								break;
+						}						
+						break;
+						
+				}				
+			}
+			
+			btn.addEventListener("click",function(){
+				zhixing();
+			})
+		</script>
+		
+	</body>
+</html>
