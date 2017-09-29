@@ -46,4 +46,15 @@
 [预览地址](https://github.com/qiulonghui/2017-IFE/blob/master/%E8%80%80%E8%80%80%E5%AD%A6%E9%99%A2/task4.html)
 
 1.使用变量i来作为方向的标记。
-2.通过i%4取模来判断小方块的方向。
+2.通过i%4取模来判断小方块的方向(-3,-2,-1,0,1,2,3  -1和3为左 / 1和-3为右/ 2和-2为下/0为上)。
+
+### 任务5
+#### 任务目的：Animation和Transition的动画过渡效果的实现
+[预览地址](https://github.com/qiulonghui/2017-IFE/blob/master/%E8%80%80%E8%80%80%E5%AD%A6%E9%99%A2/task5.html)
+
+1.transition 属性是一个简写属性，用于设置四个过渡属性：
+	***transition-property
+	***transition-duration
+	***transition-timing-function
+	***transition-delay
+

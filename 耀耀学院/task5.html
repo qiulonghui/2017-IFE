@@ -32,9 +32,9 @@
 				height: 50px;
 				background-color: red;
 				position: absolute;
-				transition-property: transform,border-radius;
-				transition-duration: 1s,1s;
-				transition-delay: 1s,0s;
+				transition-property: transform,border-radius,left,top;
+				transition-duration: 1s,1s,1s,1s;
+				transition-delay: 0s,0s,0s,0s;
 				overflow: hidden;
 			}
 			#box .box-top{
@@ -204,55 +204,71 @@
 				box.style.borderRadius="50%";
 				setTimeout(function(){
 						box.style.borderRadius="0";
-					},2000)
+					},1000)
 			}
 			
 			function run(){
 				var oInputValue = oInput.value.toUpperCase();
-				if(oInputValue=="GO"){
-					dir = i%4;//-3,-2,-1,0,1,2,3 -1和3为左 / 1和-3为右/ 2和-2为下/  0为上
-					var top = Number(box.style.top.replace("px","")); //获取到的为字符串，用Number()方法转化为数字，便于后面的计算
-					var left = Number(box.style.left.replace("px",""));
-					if(dir == 0){
-						if(top<=500&&top > 50){
-							top-=50;
-							box.style.top=top+"px";
-						}
-					}
-					if(dir == 1||dir == -3){
-						if(left<500 && left >= 50){
-							left+=50;
-							box.style.left=left+"px";
-						}
-					}
-					if(dir == 2||dir == -2){
-						if(50<=top && top <500){
-							top+=50;
-							box.style.top=top+"px";
-						}
-					}
-					if(dir == -1||dir == 3){
-						if(50< left && left <= 500){
-							left-=50;
-							box.style.left=left+"px";
-						}
+				var top = Number(box.style.top.replace("px","")); //获取到的为字符串，用Number()方法转化为数字，便于后面的计算
+				var left = Number(box.style.left.replace("px",""));
+				if(oInputValue=="TAR LEF"){
+					if(left>50){
+						left-=50;
+						box.style.left=left+"px";
 					}
 				}
-				if(oInputValue=="TUN LEF"){
-					i-=1;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+				if(oInputValue=="TAR TOP"){
+					if(top>50){
+						top-=50;
+						box.style.top=top+"px";
+					}
 				}
-				if(oInputValue=="TUN RIG"){
-					i+=1;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+				if(oInputValue=="TRA RIG"){
+					if(left<500){
+						left+=50;
+						box.style.left=left+"px";
+					}
 				}
-				if(oInputValue=="TUN BAC"){
-					i+=2;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+				if(oInputValue=="TRA BOT"){
+					if(top<500){
+						top+=50;
+						box.style.top=top+"px";
+					}				
+				}	
+				
+				
+				if(oInputValue=="MOV LEF"){
+					if(left>50){
+						borderRchange()
+						box.style.transform="rotate(-90deg)";
+						left-=50;
+						box.style.left=left+"px";			
+					}
 				}
+				if(oInputValue=="MOV TOP"){
+					if(top>50){
+						borderRchange()
+						box.style.transform="rotate(0deg)";
+						top-=50;
+						box.style.top=top+"px";
+					}
+				}
+				if(oInputValue=="MOV RIG"){
+					if(left<500){
+						borderRchange()
+						box.style.transform="rotate(90deg)";
+						left+=50;
+						box.style.left=left+"px";
+					}
+				}
+				if(oInputValue=="MOV BOT"){
+					if(top<500){
+						borderRchange()
+						box.style.transform="rotate(180deg)";
+						top+=50;
+						box.style.top=top+"px";
+					}				
+				}	
 				
 			}
 			
