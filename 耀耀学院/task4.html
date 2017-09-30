@@ -200,10 +200,14 @@
 			var btn = document.querySelector("#button");
 			//创建方向标记
 			var i = 0;
+			//动画执行标记
+			var rotateFlag= true;
+			
 			function borderRchange(){
 				box.style.borderRadius="50%";
 				setTimeout(function(){
 						box.style.borderRadius="0";
+						rotateFlag = true;
 					},2000)
 			}
 			
@@ -239,19 +243,28 @@
 					}
 				}
 				if(oInputValue=="TUN LEF"){
-					i-=1;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+					if(rotateFlag){
+						rotateFlag = false;
+						i-=1;
+						box.style.transform="rotate("+90*i+"deg)";
+						borderRchange()
+					}
 				}
 				if(oInputValue=="TUN RIG"){
-					i+=1;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+					if(rotateFlag){
+						rotateFlag = false;
+						i+=1;
+						box.style.transform="rotate("+90*i+"deg)";
+						borderRchange()					
+					}
 				}
 				if(oInputValue=="TUN BAC"){
-					i+=2;
-					box.style.transform="rotate("+90*i+"deg)";
-					borderRchange()
+					if(rotateFlag){
+						rotateFlag = false;
+						i+=2;
+						box.style.transform="rotate("+90*i+"deg)";
+						borderRchange()				
+					}
 				}
 				
 			}
