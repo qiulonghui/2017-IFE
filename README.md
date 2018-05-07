@@ -53,10 +53,10 @@
 [预览地址](https://github.com/qiulonghui/2017-IFE/blob/master/%E8%80%80%E8%80%80%E5%AD%A6%E9%99%A2/task5.html)
 
 1.transition 属性是一个简写属性，用于设置四个过渡属性：
-	***transition-property
-	***transition-duration
-	***transition-timing-function
-	***transition-delay
+* transition-property
+* transition-duration
+* transition-timing-function
+* transition-delay
 
 ### 任务6 UI组件排序表格
 #### 任务目的：1.练习综合运用HTML、CSS、JavaScript实现局部功能 2.练习对于代码的抽象与封装 3.运用面向对象的方式
