@@ -55,10 +55,14 @@
 1.transition 属性是一个简写属性，用于设置四个过渡属性：
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * transition-propertyssssssssssssss
 =======
 * transition-property
 >>>>>>> parent of e7aaa98... Revert "Merge branch 'master' of https://github.com/qiulonghui/2017-IFE"
+=======
+* transition-property
+>>>>>>> parent of 3fd657f... 1
 =======
 * transition-property
 >>>>>>> parent of 3fd657f... 1
