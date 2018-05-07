@@ -56,10 +56,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * transition-propertyssssssssssssss
 =======
 * transition-property
 >>>>>>> parent of e7aaa98... Revert "Merge branch 'master' of https://github.com/qiulonghui/2017-IFE"
+=======
+* transition-property
+>>>>>>> parent of 3fd657f... 1
 =======
 * transition-property
 >>>>>>> parent of 3fd657f... 1
